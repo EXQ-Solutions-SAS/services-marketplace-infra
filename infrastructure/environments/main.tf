@@ -15,10 +15,12 @@ module "database" {
 }
 
 module "backend_api" {
-  source     = "../../modules/compute"
-  project_id = var.project_id
-  image_url  = var.backend_image
-  db_host    = module.database.private_ip
+  source                = "../../modules/compute"
+  project_id            = var.project_id
+  region                = var.region
+  image_url             = var.backend_image
+  db_host               = module.database.db_private_ip # Viene del output de DB
+  db_password_secret_id = var.db_password             # O mejor, el secret version
 }
 
 module "frontend_hosting" {
