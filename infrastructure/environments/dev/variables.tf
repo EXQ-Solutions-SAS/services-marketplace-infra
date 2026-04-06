@@ -25,3 +25,15 @@ variable "backend_image" {
   description = "Docker image URL for Cloud Run"
   type        = string
 }
+
+variable "db_user" {
+  description = "The database admin user"
+  type        = string
+  default     = "exq_admin"
+}
+
+variable "db_name" {
+  description = "The name of the database"
+  type        = string
+  default     = "exq_database"
+}
