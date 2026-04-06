@@ -1,0 +1,5 @@
+project_id    = "tu-proyecto-id"
+region        = "us-central1"
+zone          = "us-central1-a"
+backend_image = "gcr.io/tu-proyecto/api-admin:latest"
+# db_password no se pone aquí, se maneja por env var o Secret Manager
