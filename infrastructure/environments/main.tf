@@ -7,10 +7,11 @@ module "networking" {
 }
 
 module "database" {
-  source          = "../../modules/database"
-  network_id      = module.networking.vpc_id
-  db_password     = var.db_password # Se pasa vía variable secreta
-  instance_tier   = "db-f1-micro"   # Demuestras que cuidas el presupuesto
+  source      = "../../modules/database"
+  project_id  = var.project_id
+  region      = var.region
+  network_id  = module.networking.vpc_id # <--- Conexión entre módulos
+  db_password = var.db_password
 }
 
 module "backend_api" {
