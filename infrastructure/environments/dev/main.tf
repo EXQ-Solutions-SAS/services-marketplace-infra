@@ -1,13 +1,13 @@
 # /infrastructure/environments/dev/main.tf
 
 module "networking" {
-  source     = "../../modules/networking"
+  source     = "../../../modules/networking"
   project_id = var.project_id
   region     = var.region
 }
 
 module "database" {
-  source      = "../../modules/database"
+  source      = "../../../modules/database"
   project_id  = var.project_id
   region      = var.region
   network_id  = module.networking.vpc_id # <--- Conexión entre módulos
@@ -15,7 +15,7 @@ module "database" {
 }
 
 module "backend_api" {
-  source                = "../../modules/compute"
+  source                = "../../../modules/compute"
   project_id            = var.project_id
   region                = var.region
   image_url             = var.backend_image
@@ -24,6 +24,6 @@ module "backend_api" {
 }
 
 module "frontend_hosting" {
-  source     = "../../modules/firebase"
+  source     = "../../../modules/firebase"
   project_id = var.project_id
 }
