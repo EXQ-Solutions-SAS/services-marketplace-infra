@@ -21,7 +21,6 @@ module "backend_api" {
   image_url             = var.backend_image
   db_host               = module.database.db_private_ip
   db_password_secret_id = var.db_password
-  # ESTAS TAMBIÉN FALTAN AQUÍ:
   db_name               = var.db_name
   db_user               = var.db_user
 }
